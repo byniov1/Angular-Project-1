@@ -15,10 +15,10 @@ export class HeaderComponent{
   //   this.selected.emit(event.target.textContent)
   // }
   
-  @Output() featureSelected = new EventEmitter<string>()
+  // @Output() featureSelected = new EventEmitter<string>()
   
-  onSelect(feature: string){
-    this.featureSelected.emit(feature)
-  }
+  // onSelect(feature: string){
+  //   this.featureSelected.emit(feature)
+  // }
 
 }
