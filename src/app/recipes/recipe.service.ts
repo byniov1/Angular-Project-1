@@ -1,15 +1,16 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { EventEmitter, Injectable, OnInit } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingEditComponent } from "../shopping-list/shopping-edit/shopping-edit.component";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { Recipe } from "./recipe.model";
+import { ActivatedRoute } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
 })
 
 
-export class RecipeService{
+export class RecipeService implements OnInit{
     recipeSelected = new EventEmitter<Recipe>();
 
     private recipes: Recipe[] = [
@@ -31,8 +32,16 @@ export class RecipeService{
             ])
     ];
 
-    constructor(private shoppingListService: ShoppingListService){}
+    constructor(private shoppingListService: ShoppingListService, private route: ActivatedRoute){}
+    
+    ngOnInit(): void {
+        throw new Error("Method not implemented.");
+    }
 
+    getRecipe(id: number){
+        return this.recipes[id]
+    }
+    
     getRecipes(){
         return this.recipes.slice();
     }
